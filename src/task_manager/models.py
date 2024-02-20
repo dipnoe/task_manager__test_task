@@ -16,7 +16,7 @@ class Task(models.Model):
         (2, 2),
         (3, 3),
     ]
-    created = models.DateTimeField(auto_now_add=True, default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
     executor = models.ForeignKey(Executor, on_delete=models.CASCADE)
     priority = models.PositiveIntegerField(choices=PRIORITY)
     title = models.CharField(max_length=255)
