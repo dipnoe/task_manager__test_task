@@ -40,6 +40,8 @@ services:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
     restart: unless-stopped
+    volumes:
+      - ./public/static:/app/static
     ports:
       - "8000:80"
     depends_on:
