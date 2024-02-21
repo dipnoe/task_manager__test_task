@@ -10,7 +10,13 @@ app_name = TaskManagerConfig.name
 
 urlpatterns = [
     path('create/', TaskCreateAPIView.as_view(), name='task_create'),
-    path('update/<int:pk>/', TaskUpdateAPIView.as_view(), name='task_update'),
-    path('destroy/<int:pk>/', TaskDestroyAPIView.as_view(), name='task_destroy'),
+    path(
+        'update/<int:pk>/',
+        TaskUpdateAPIView.as_view(), name='task_update'
+    ),
+    path(
+        'destroy/<int:pk>/',
+        TaskDestroyAPIView.as_view(), name='task_destroy'
+    ),
     path('list/', TaskListAPIView.as_view(), name='task_list'),
 ]

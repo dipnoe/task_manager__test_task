@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
         try:
             executor = Executor.objects.get(name=name)
-            print('Executor exists, you can use his id "%s" for creating a task.' % executor.pk)
+            print('Executor exists, you can use his id "%s".' % executor.pk)
         except Executor.DoesNotExist:
             executor = Executor.objects.create(
                 name=name
