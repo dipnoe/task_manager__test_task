@@ -153,6 +153,27 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/task/list/",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"task",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
