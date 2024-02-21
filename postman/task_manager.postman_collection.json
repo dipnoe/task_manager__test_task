@@ -7,13 +7,24 @@
 	},
 	"item": [
 		{
-			"name": "create task",
+			"name": "Create task",
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
 						"exec": [
 							"pm.collectionVariables.set(\"random_priority\", _.random(1, 3));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseData=pm.response.json();",
+							"console.log(responseData);",
+							"pm.collectionVariables.set(\"task_id\", responseData.id);"
 						],
 						"type": "text/javascript"
 					}
@@ -48,7 +59,7 @@
 			"response": []
 		},
 		{
-			"name": "update task",
+			"name": "Update task",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -73,7 +84,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{protocol}}://{{host}}:{{port}}/task/update/1/",
+					"raw": "{{protocol}}://{{host}}:{{port}}/task/update/:task_id/",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{host}}"
@@ -82,15 +93,21 @@
 					"path": [
 						"task",
 						"update",
-						"1",
+						":task_id",
 						""
+					],
+					"variable": [
+						{
+							"key": "task_id",
+							"value": "{{task_id}}"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "update task Copy",
+			"name": "Destroy task",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -115,7 +132,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{protocol}}://{{host}}:{{port}}/task/delete/1/",
+					"raw": "{{protocol}}://{{host}}:{{port}}/task/destroy/:task_id/",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{host}}"
@@ -123,9 +140,15 @@
 					"port": "{{port}}",
 					"path": [
 						"task",
-						"delete",
-						"1",
+						"destroy",
+						":task_id",
 						""
+					],
+					"variable": [
+						{
+							"key": "task_id",
+							"value": "{{task_id}}"
+						}
 					]
 				}
 			},
@@ -171,6 +194,11 @@
 		{
 			"key": "random_priority",
 			"value": ""
+		},
+		{
+			"key": "task_id",
+			"value": "1",
+			"type": "string"
 		}
 	]
 }
