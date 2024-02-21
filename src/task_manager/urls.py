@@ -1,7 +1,9 @@
 from django.urls import path
 
 from task_manager.apps import TaskManagerConfig
-from task_manager.views import TaskCreateAPIView, TaskUpdateAPIView, TaskDestroyAPIView
+from task_manager.views import (TaskCreateAPIView,
+                                TaskUpdateAPIView,
+                                TaskDestroyAPIView)
 
 app_name = TaskManagerConfig.name
 

@@ -19,7 +19,7 @@ from django.urls import include, path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from config.settings import EMAIL
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -27,7 +27,7 @@ schema_view = get_schema_view(
         default_version='v1',
         description="Task manager",
         terms_of_service="https://www.example.com/policies/terms/",
-        contact=openapi.Contact(email=EMAIL),
+        contact=openapi.Contact(email="example@example.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
