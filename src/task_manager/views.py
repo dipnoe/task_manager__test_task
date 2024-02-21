@@ -1,6 +1,7 @@
 from rest_framework.generics import (CreateAPIView,
                                      UpdateAPIView,
-                                     DestroyAPIView)
+                                     DestroyAPIView,
+                                     ListAPIView)
 
 from task_manager.models import Task
 from task_manager.serializers import TaskSerializer
@@ -18,5 +19,10 @@ class TaskUpdateAPIView(UpdateAPIView):
 
 
 class TaskDestroyAPIView(DestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+
+class TaskListAPIView(ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
