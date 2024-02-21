@@ -31,7 +31,7 @@ SECRET_KEY = getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
-
+CSRF_TRUSTED_ORIGINS = [getenv('CSRF_TRUSTED_ORIGIN')]
 
 # Application definition
 
